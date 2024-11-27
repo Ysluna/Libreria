@@ -17,9 +17,9 @@ import { Editorial } from './Editorial/editorial.entity';
         type: 'mysql',
         host: configService.get<string>('DB_HOST', 'localhost'),
         port: parseInt(process.env.DB_PORT, 10) || 3306,
-        username: process.env.DB_USER || 'root',
-        password: process.env.DB_PASSWORD || '0220',
-        database: process.env.DB_NAME || 'libreria',
+        username: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
         entities: [Autor, Libro, Editorial],
         synchronize: true,
         logging: true,
@@ -29,21 +29,3 @@ import { Editorial } from './Editorial/editorial.entity';
 })
 export class AppModule {}
 
-/*@Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root', 
-      password: '0220', 
-      database: 'libreria', 
-      entities: [Libro, Autor, Editorial], 
-      synchronize: true, 
-    }),
-    LibroModule,
-    AutorModule,
-    EditorialModule,
-  ],
-})
-export class AppModule {}*/
